@@ -1,66 +1,61 @@
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-gray-100 text-gray-900">
-      {/* Header */}
-      <header className="bg-white shadow p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Taxi BenSsa</h1>
-        <a
-          href="https://wa.me/31643636957"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-green-500 text-white px-4 py-2 rounded-xl hover:bg-green-600"
-        >
-          Boek via WhatsApp
-        </a>
-      </header>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Taxi BenSsa - Betrouwbare en snelle taxiritten in Maassluis, Vlaardingen, Rotterdam en omgeving." />
+  <meta name="keywords" content="Taxi Maassluis, Taxi Vlaardingen, Taxi Rotterdam, Taxi Zuid-Holland, Taxi BenSsa" />
+  <meta name="author" content="Taxi BenSsa" />
+  <title>Taxi BenSsa - Snel op weg in Zuid-Holland</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-6 text-center">
-        <h2 className="text-4xl font-bold mb-4">Altijd snel op weg in Zuid-Holland</h2>
-        <p className="text-lg mb-6">
-          Betrouwbare taxi in Maassluis, Vlaardingen, Rotterdam en omstreken.
-        </p>
-        <a
-          href="https://wa.me/31643636957"
-          className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-gray-200"
-        >
-          Boek jouw rit nu
-        </a>
-      </section>
-
-      {/* Waarom kiezen voor BenSsa? */}
-      <section className="py-16 px-6">
-        <h3 className="text-2xl font-bold text-center mb-10">Waarom kiezen voor Taxi BenSsa?</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h4 className="font-semibold mb-2">Altijd op tijd</h4>
-            <p>Wij staan klaar wanneer jij dat nodig hebt.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h4 className="font-semibold mb-2">Comfort en netheid</h4>
-            <p>Schone en comfortabele voertuigen met vriendelijke chauffeurs.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h4 className="font-semibold mb-2">Flexibel betalen</h4>
-            <p>Tikkie of contant — alles is mogelijk.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Actieve gebieden */}
-      <section className="bg-white py-16 px-6">
-        <h3 className="text-2xl font-bold text-center mb-6">Actieve gebieden</h3>
-        <p className="text-center max-w-2xl mx-auto">
-          Wij rijden dagelijks in Maassluis, Vlaardingen, Rotterdam en omliggende regio's.
-          Ook beschikbaar voor ritten naar luchthavens, ziekenhuizen en speciale evenementen.
-        </p>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-gray-300 py-6 text-center text-sm">
-        &copy; {new Date().getFullYear()} Taxi BenSsa. Alle rechten voorbehouden.
-      </footer>
+  <!-- Hero Section -->
+  <header class="relative h-screen bg-cover bg-center" style="background-image: url('/images/taxiboard-banner.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 flex items-center justify-center h-full text-center px-4">
+      <div>
+        <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">Taxi BenSsa</h1>
+        <p class="text-white text-lg md:text-xl font-light mb-8">Altijd snel, altijd beschikbaar in Zuid-Holland</p>
+        <a href="https://wa.me/31643636957" class="inline-block bg-green-500 hover:bg-green-600 text-white text-lg font-medium px-6 py-3 rounded-full shadow-lg transition">Boek nu via WhatsApp</a>
+      </div>
     </div>
-  );
-}
+  </header>
 
+  <!-- Waarom Taxi BenSsa -->
+  <section class="py-16 px-4 md:px-16 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-semibold mb-8">Waarom Taxi BenSsa?</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex items-start">
+          <img src="/icons/clock.svg" class="w-6 h-6 mt-1 mr-3" alt="Op tijd" />
+          <p><strong>Altijd op tijd</strong> – Wij staan voor je klaar, wanneer jij dat nodig hebt.</p>
+        </div>
+        <div class="flex items-start">
+          <img src="/icons/car.svg" class="w-6 h-6 mt-1 mr-3" alt="Comfort" />
+          <p><strong>Comfortabel vervoer</strong> – Schone wagens en vriendelijke chauffeurs.</p>
+        </div>
+        <div class="flex items-start">
+          <img src="/icons/pay.svg" class="w-6 h-6 mt-1 mr-3" alt="Betaalmethoden" />
+          <p><strong>Flexibel betalen</strong> – Via Tikkie of contant, wat jou uitkomt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Actieve Gebieden -->
+  <section class="py-16 px-4 md:px-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-4">Actieve Gebieden</h2>
+      <p class="text-lg">Dagelijks actief in <strong>Maassluis</strong>, <strong>Vlaardingen</strong>, <strong>Rotterdam</strong> en heel <strong>Zuid-Holland</strong>. Ook voor luchthavens, ziekenhuizen en evenementen.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 text-center text-sm">
+    <p>&copy; 2025 Taxi BenSsa. Alle rechten voorbehouden.</p>
+  </footer>
+
+</body>
+</html>
