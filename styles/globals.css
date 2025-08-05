@@ -1,0 +1,208 @@
+/* Global Styles voor Taxi BenSsa site */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+}
+header.navbar {
+  background-color: #000;
+  color: #fff;
+}
+header.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 20px;
+}
+header.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+header.navbar li {
+  margin: 0 10px;
+}
+header.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+header.navbar a:hover {
+  text-decoration: underline;
+}
+header.navbar .lang-switch {
+  font-weight: bold;
+}
+.hero {
+  position: relative;
+  background: url('/taxiboard-banner.jpg') center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  padding: 80px 20px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  position: relative;
+  font-size: 3em;
+  margin: 0;
+}
+.hero .tagline {
+  position: relative;
+  font-size: 1.5em;
+  margin: 10px 0 30px;
+}
+.hero .whatsapp-btn {
+  position: relative;
+  display: inline-block;
+  background-color: #25D366;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.hero .whatsapp-btn:hover {
+  background-color: #1ebe5a;
+}
+.features {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.features h2 {
+  text-align: center;
+}
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+.features li {
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+.features img {
+  vertical-align: middle;
+  width: 24px;
+  margin-right: 8px;
+}
+.page-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.page-content h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.page-content h3 {
+  margin-top: 20px;
+}
+.page-content p {
+  line-height: 1.6;
+}
+.page-content ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+.review-card {
+  background: #f8f8f8;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 5px;
+  max-width: 600px;
+  width: 80%;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.review-card p {
+  margin: 5px 0;
+}
+.stars {
+  color: #ffc107;
+}
+.arrow {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 2em;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+.arrow.left {
+  left: 0;
+}
+.arrow.right {
+  right: 0;
+}
+.arrow:focus {
+  outline: none;
+}
+.form-field {
+  margin-bottom: 15px;
+}
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background-color: #333;
+}
+/* Responsive aanpassingen */
+@media (max-width: 600px) {
+  header.navbar nav {
+    flex-direction: column;
+  }
+  header.navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  header.navbar li {
+    margin: 5px 0;
+  }
+  .hero h1 {
+    font-size: 2.5em;
+  }
+  .hero .tagline {
+    font-size: 1.2em;
+  }
+  .review-card {
+    width: 95%;
+  }
+}
