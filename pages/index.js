@@ -1,235 +1,172 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 export default function Home() {
-  const [lang, setLang] = useState('nl');
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    AOS.init({ duration: 800 });
   }, []);
+
+  const [language, setLanguage] = useState('nl');
 
   const t = {
     nl: {
-      title: 'Taxi BenSsa – Snel & Betrouwbaar in Zuid-Holland',
-      tagline: 'Altijd beschikbaar in Maassluis, Vlaardingen, Rotterdam en omgeving',
-      diensten: 'Diensten',
-      tarieven: 'Tarieven',
-      reviews: 'Reviews',
-      contact: 'Contact',
-      voordelen: 'Waarom Taxi BenSsa?',
-      voordeel1: 'Altijd op tijd – Wij staan voor je klaar',
-      voordeel2: 'Comfortabel vervoer – Schone wagens, vriendelijke chauffeurs',
-      voordeel3: 'Flexibel betalen – Via Tikkie of contant',
-      prijzen: 'Ritprijzen vanaf €10 binnen de regio, luchthavenritten vanaf €45',
-      review1: '"Beste taxi ervaring ooit, altijd op tijd!" – Fatima A.',
-      review2: '"Heel vriendelijk en auto was super schoon." – Johan V.',
-      review3: '"Binnen 10 minuten stond hij voor mijn deur." – Sara E.',
-      neemContact: 'Neem contact op via WhatsApp of het formulier hieronder:',
-      naam: 'Naam',
-      bericht: 'Bericht',
-      verzenden: 'Verzenden',
-      terug: '⬆ Terug omhoog',
-      taal: 'Taal'
+      title: 'Taxi BenSsa',
+      subtitle: 'Altijd snel, altijd beschikbaar in Zuid-Holland',
+      whatsapp: '📱 Boek nu via WhatsApp',
+      features: [
+        { icon: '⏰', text: 'Altijd op tijd – Wij staan voor je klaar wanneer jij dat nodig hebt.' },
+        { icon: '🚗', text: 'Comfortabel vervoer – Schone wagens en vriendelijke chauffeurs.' },
+        { icon: '💳', text: 'Flexibel betalen – Via Tikkie of contant, wat jou uitkomt.' },
+      ],
+      gebied: 'Actieve regio: Maassluis, Vlaardingen, Rotterdam & Zuid-Holland.',
+      reviews: ['Beste taxi ooit! 👌', 'Snel & netjes geholpen.', 'Altijd bereikbaar!'],
+      contact: 'Neem contact op via het formulier hieronder:',
+      submit: 'Verzend',
     },
     en: {
-      title: 'Taxi BenSsa – Fast & Reliable in South Holland',
-      tagline: 'Always available in Maassluis, Vlaardingen, Rotterdam and area',
-      diensten: 'Services',
-      tarieven: 'Rates',
-      reviews: 'Reviews',
-      contact: 'Contact',
-      voordelen: 'Why Choose Taxi BenSsa?',
-      voordeel1: 'Always on time – We’re there when you need us',
-      voordeel2: 'Comfortable rides – Clean cars, friendly drivers',
-      voordeel3: 'Flexible payment – Tikkie or cash, your choice',
-      prijzen: 'Ride prices from €10 in town, airport rides from €45',
-      review1: '"Best taxi experience ever, always on time!" – Fatima A.',
-      review2: '"Very friendly and car was super clean." – Johan V.',
-      review3: '"Arrived within 10 minutes." – Sara E.',
-      neemContact: 'Contact us via WhatsApp or form below:',
-      naam: 'Name',
-      bericht: 'Message',
-      verzenden: 'Send',
-      terug: '⬆ Back to top',
-      taal: 'Language'
-    }
-  }[lang];
+      title: 'Taxi BenSsa',
+      subtitle: 'Always fast, always available in South Holland',
+      whatsapp: '📱 Book via WhatsApp',
+      features: [
+        { icon: '⏰', text: 'Always on time – We’re ready when you need us.' },
+        { icon: '🚗', text: 'Comfortable rides – Clean cars and friendly drivers.' },
+        { icon: '💳', text: 'Flexible payment – Tikkie or cash, you choose.' },
+      ],
+      gebied: 'Operating region: Maassluis, Vlaardingen, Rotterdam & South Holland.',
+      reviews: ['Best taxi ever! 👌', 'Fast & polite driver.', 'Always available!'],
+      contact: 'Get in touch using the form below:',
+      submit: 'Submit',
+    },
+  };
+
+  const lang = t[language];
 
   return (
     <>
       <Head>
-        <title>{t.title}</title>
-        <meta name="description" content={t.tagline} />
+        <title>{lang.title} - Taxi Zuid-Holland</title>
+        <meta name="description" content={lang.subtitle} />
       </Head>
 
-      <style jsx global>{`
+      {/* Taal-switch */}
+      <div style={{ position: 'fixed', top: 10, right: 20, zIndex: 1000 }}>
+        <button onClick={() => setLanguage('nl')}>NL</button> | <button onClick={() => setLanguage('en')}>EN</button>
+      </div>
+
+      {/* Hero sectie */}
+      <section className="hero" id="hero" data-aos="fade-in">
+        <h1>{lang.title}</h1>
+        <p>{lang.subtitle}</p>
+        <a href="https://wa.me/31643636957" className="whatsapp-btn">{lang.whatsapp}</a>
+      </section>
+
+      {/* Features */}
+      <section className="features" data-aos="fade-up">
+        <h2>Waarom {lang.title}?</h2>
+        <ul>
+          {lang.features.map((f, i) => (
+            <li key={i}>{f.icon} {f.text}</li>
+          ))}
+        </ul>
+        <p><strong>{lang.gebied}</strong></p>
+      </section>
+
+      {/* Reviews */}
+      <section className="reviews" data-aos="fade-up">
+        <h2>Reviews</h2>
+        <div className="review-slider">
+          {lang.reviews.map((r, i) => (
+            <div key={i} className="review">{r}</div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="contact" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>{lang.contact}</p>
+        <form className="contact-form">
+          <input type="text" placeholder="Naam" required />
+          <input type="email" placeholder="E-mail" required />
+          <textarea placeholder="Bericht" required></textarea>
+          <button type="submit">{lang.submit}</button>
+        </form>
+      </section>
+
+      {/* Sticky WhatsApp + Scroll to top */}
+      <a href="https://wa.me/31643636957" className="floating-whatsapp">💬</a>
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="scroll-top">⬆️</button>
+
+      <style jsx>{`
         body {
-          margin: 0;
-          font-family: 'Arial', sans-serif;
-          scroll-behavior: smooth;
+          font-family: sans-serif;
         }
         .hero {
-          background: url('/taxiboard-banner.jpg') center/cover no-repeat;
+          background: url('/taxi-bg.jpg') center/cover no-repeat;
           height: 90vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          color: white;
           text-align: center;
-          color: white;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        h1 { font-size: 3rem; margin: 0.5rem 0; }
-        .tagline { font-size: 1.2rem; }
-        .lang-switch {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          background: white;
-          border-radius: 4px;
-          padding: 0.3rem 0.6rem;
-        }
-        .lang-switch button {
-          background: none;
-          border: none;
-          cursor: pointer;
-          margin: 0 0.2rem;
-          font-weight: bold;
-        }
-        section {
-          padding: 3rem 1.5rem;
-          max-width: 800px;
-          margin: auto;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.8s ease;
-        }
-        section.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 1rem; }
         .whatsapp-btn {
-          background: #25D366;
+          background: #25d366;
           color: white;
-          padding: 0.8rem 1.4rem;
-          border-radius: 8px;
+          padding: 12px 24px;
+          border-radius: 5px;
           text-decoration: none;
           font-weight: bold;
         }
-        .sticky-wa {
+        .features, .reviews, .contact {
+          padding: 60px 20px;
+          max-width: 800px;
+          margin: auto;
+        }
+        .review-slider {
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+        }
+        .review {
+          min-width: 250px;
+          padding: 20px;
+          background: #f2f2f2;
+          border-radius: 5px;
+        }
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+          padding: 10px;
+          width: 100%;
+        }
+        .floating-whatsapp {
           position: fixed;
           bottom: 20px;
           right: 20px;
-          background: #25D366;
+          background: #25d366;
           color: white;
-          padding: 0.8rem 1rem;
-          border-radius: 50px;
-          font-weight: bold;
-          text-decoration: none;
+          font-size: 24px;
+          padding: 10px 15px;
+          border-radius: 50%;
           z-index: 999;
+          text-decoration: none;
         }
         .scroll-top {
           position: fixed;
           bottom: 80px;
           right: 20px;
-          background: #000;
-          color: white;
-          border: none;
-          padding: 0.5rem 0.9rem;
-          border-radius: 30px;
-          cursor: pointer;
-        }
-        footer {
-          text-align: center;
-          padding: 2rem;
-          background: #f2f2f2;
-          margin-top: 4rem;
-          font-size: 0.9rem;
-        }
-        input, textarea {
-          width: 100%;
-          padding: 0.7rem;
-          margin: 0.5rem 0;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-        }
-        button.send {
-          background: black;
-          color: white;
-          padding: 0.8rem 1.2rem;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-        }
-        .reviews { display: flex; overflow-x: scroll; gap: 1rem; scroll-snap-type: x mandatory; }
-        .review {
-          background: #f9f9f9;
-          padding: 1rem;
-          border-radius: 8px;
-          flex: 0 0 80%;
-          scroll-snap-align: start;
+          padding: 8px 12px;
+          font-size: 20px;
+          z-index: 999;
         }
       `}</style>
-
-      <div className="lang-switch">
-        <span>{t.taal}: </span>
-        <button onClick={() => setLang('nl')}>NL</button>
-        <button onClick={() => setLang('en')}>EN</button>
-      </div>
-
-      <section className="hero">
-        <h1>Taxi BenSsa</h1>
-        <p className="tagline">{t.tagline}</p>
-        <a href="https://wa.me/31643636957" className="whatsapp-btn" target="_blank" rel="noreferrer">📱 WhatsApp</a>
-      </section>
-
-      <section id="diensten" className="fade-in">
-        <h2>{t.voordelen}</h2>
-        <ul>
-          <li>✅ {t.voordeel1}</li>
-          <li>✅ {t.voordeel2}</li>
-          <li>✅ {t.voordeel3}</li>
-        </ul>
-      </section>
-
-      <section id="tarieven" className="fade-in">
-        <h2>{t.tarieven}</h2>
-        <p>{t.prijzen}</p>
-      </section>
-
-      <section id="reviews" className="fade-in">
-        <h2>{t.reviews}</h2>
-        <div className="reviews">
-          <div className="review">⭐⭐⭐⭐⭐<br />{t.review1}</div>
-          <div className="review">⭐⭐⭐⭐⭐<br />{t.review2}</div>
-          <div className="review">⭐⭐⭐⭐⭐<br />{t.review3}</div>
-        </div>
-      </section>
-
-      <section id="contact" className="fade-in">
-        <h2>{t.contact}</h2>
-        <p>{t.neemContact}</p>
-        <form onSubmit={e => e.preventDefault()}>
-          <input type="text" placeholder={t.naam} required />
-          <textarea rows="4" placeholder={t.bericht} required />
-          <button className="send">{t.verzenden}</button>
-        </form>
-      </section>
-
-      <a href="#top" className="scroll-top">{t.terug}</a>
-      <a className="sticky-wa" href="https://wa.me/31643636957" target="_blank">💬 WhatsApp</a>
-
-      <footer>
-        &copy; 2025 Taxi BenSsa – Alle rechten voorbehouden
-      </footer>
     </>
   );
 }
