@@ -1,43 +1,49 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taxi BenSsa – Snel & Betrouwbaar</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Taxi BenSsa</h1>
-    <p>Snel & betrouwbaar in Maassluis, Vlaardingen & Zuid-Holland</p>
-    <a href="https://wa.me/31643636957" class="whatsapp-btn">📲 Boek via WhatsApp</a>
-  </header>
+import Head from 'next/head';
+import Link from 'next/link';
 
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Diensten</a></li>
-      <li><a href="#">Tarieven</a></li>
-      <li><a href="#">Reviews</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
+export default function HomeNL() {
+  return (
+    <>
+      <Head>
+        <title>Taxi BenSsa - 24/7 Taxi in Zuid-Holland</title>
+        <meta name="description" content="Taxi BenSsa: Altijd snel en betrouwbaar taxi vervoer in Zuid-Holland. 24/7 bereikbaar, scherpe tarieven voor luchthavens." />
+        <link rel="alternate" href="/en" hrefLang="en" />
+        <link rel="alternate" href="/nl" hrefLang="nl" />
+      </Head>
 
-  <main>
-    <section class="features">
-      <h2>Waarom Taxi BenSsa?</h2>
-      <ul>
-        <li>✅ <strong>Altijd op tijd</strong> – Wij staan klaar wanneer jij dat nodig hebt.</li>
-        <li>🚖 <strong>Comfortabel vervoer</strong> – Schone wagens en vriendelijke chauffeurs.</li>
-        <li>💳 <strong>Flexibel betalen</strong> – Tikkie of contant, wat jou uitkomt.</li>
-        <li>🌍 <strong>Actief in regio</strong> – Maassluis, Vlaardingen, Rotterdam & Zuid-Holland.</li>
-        <li>🛫 <strong>Luchthavenvervoer</strong> – Schiphol, Rotterdam Airport, Düsseldorf, etc.</li>
-      </ul>
-    </section>
-  </main>
+      {/* Top navigatie met taal-switch */}
+      <header className="navbar">
+        <nav>
+          <ul>
+            <li><Link href="/nl"><a>Home</a></Link></li>
+            <li><Link href="/nl/diensten"><a>Diensten</a></Link></li>
+            <li><Link href="/nl/tarieven"><a>Tarieven</a></Link></li>
+            <li><Link href="/nl/reviews"><a>Reviews</a></Link></li>
+            <li><Link href="/nl/contact"><a>Contact</a></Link></li>
+          </ul>
+          <div className="lang-switch">
+            <Link href="/nl"><a>NL</a></Link> | <Link href="/en"><a>EN</a></Link>
+          </div>
+        </nav>
+      </header>
 
-  <footer>
-    <p>&copy; 2025 Taxi BenSsa. Alle rechten voorbehouden.</p>
-  </footer>
-</body>
-</html>
+      {/* Hero sectie met achtergrondafbeelding */}
+      <section className="hero">
+        <h1>Taxi BenSsa</h1>
+        <p className="tagline">Altijd snel, altijd beschikbaar in Zuid-Holland</p>
+        <a href="https://wa.me/31612345678" className="whatsapp-btn" target="_blank" rel="noopener">📱 Boek nu via WhatsApp</a>
+      </section>
+
+      {/* Waarom Taxi BenSsa sectie */}
+      <section className="features">
+        <h2>Waarom Taxi BenSsa?</h2>
+        <ul>
+          <li><img src="/clock.svg" alt="" /> <strong>Altijd op tijd</strong> – Wij staan voor je klaar, wanneer jij dat nodig hebt.</li>
+          <li><img src="/car.svg" alt="" /> <strong>Comfortabel vervoer</strong> – Schone wagens en vriendelijke chauffeurs.</li>
+          <li><img src="/pay.svg" alt="" /> <strong>Flexibel betalen</strong> – Via Tikkie of contant, wat jou uitkomt.</li>
+        </ul>
+        <p><strong>Actieve gebieden:</strong> Dagelijks actief in Maassluis, Vlaardingen, Rotterdam en heel Zuid-Holland. Ook beschikbaar voor luchthavens, ziekenhuizen en evenementen.</p>
+      </section>
+    </>
+  );
+}
